@@ -534,7 +534,7 @@ La Traceability Matrix serve a verificare, prima della baseline, i collegamenti 
 | **RNF5** | UC-03, UC-04, UC-05 | US-13 | AC-US13-01 | | Sicurezza HTTPS/TLS 1.3 e GDPR |
 | **RNF6** | | | | | Compatibilità Android 10+ e iOS 15+ |
 | **RNF7** | UC-01, UC-02, UC-08 | US-14 | AC-US14-01 ...02 | | Accessibilità WCAG 2.1 AA |
-| **RNF8** | | | | | Localizzazione bilingue (IT/EN) |
+| **RNF8** | | | | | Localizzazione trilingue (IT/EN/DE) |
 | **RNF9** | UC-01 | US-03 | AC-US03-01 ...02 | MU-Fig.5a, MU-Fig.5b | Equità di posizionamento senza sponsorizzazioni |
 | **RNF10** | UC-08 | US-07 | | MU-Fig.19, MU-Fig.20 | Usabilità interfaccia negoziante ($\le 3$ clic) |
 | **RNF11** | UC-08 | US-07 | | MU-Fig.17 | Efficienza importazione dati (500 prodotti in $< 5\text{s}$) |
