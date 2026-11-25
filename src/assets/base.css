@@ -1,0 +1,638 @@
+/* ==========================================
+   VARIABLES
+========================================== */
+
+:root {
+    color-scheme: light;
+
+    --green-dark: #41513b;
+    --green: #61734f;
+    --green-light: #7d8f5f;
+    --green-pale: #e9eddf;
+
+    --cream: #f4ede7;
+    --cream-light: #fffaf2;
+    --white: #ffffff;
+
+    --orange: #d57853;
+    --orange-light: #bd9272;
+    --orange-pale: #fdeee2;
+
+    --text: #41513b;
+    --muted: #7a8468;
+    --border: rgba(65, 81, 59, 0.12);
+
+    --font-title: "Fraunces", Georgia, serif;
+    --font-body: "Inter", Arial, sans-serif;
+
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+    --radius-xl: 38px;
+
+    --shadow-sm:
+        0 4px 14px rgba(65, 81, 59, 0.06);
+
+    --shadow-md:
+        0 12px 35px rgba(65, 81, 59, 0.09);
+
+    --shadow-lg:
+        0 22px 55px rgba(65, 81, 59, 0.13);
+
+    --transition: 0.35s cubic-bezier(.2,.7,.3,1);
+
+    --container: 1200px;
+}
+
+/* ==========================================
+    FONTS
+========================================== */
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("fonts/Fraunces[SOFT,WONK,opsz,wght].woff2")
+         format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("fonts/Fraunces-Italic[SOFT,WONK,opsz,wght].woff2")
+         format("woff2");
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("fonts/Inter-VariableFont_opsz\,wght.ttf")
+         format("truetype");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("fonts/Inter-Italic-VariableFont_opsz\,wght.ttf")
+         format("truetype");
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+/* ==========================================
+   RESET
+========================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--cream);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+}
+
+a:hover {
+    transition: var(--transition);
+}
+
+a:hover::after {
+    width: calc(100% - 26px);
+}
+
+ul,
+ol {
+    padding-left: 1.5rem;
+}
+
+hr {
+    height: 1px;
+    border: 0;
+}
+
+/* ------------------------------
+   BUTTONS
+------------------------------ */
+
+.btn {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: 0.7rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-md);
+    font-weight: 650;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+
+    background: var(--orange);
+    color: var(--white);
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+.btn:hover {
+    background: #c66c48;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(213, 120, 83, 0.22);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    margin-top: 45px;
+    align-items: stretch;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 32px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-6px) rotate(-0.5deg);
+    box-shadow: 5px 10px 20px rgba(67, 74, 49, 0.12);
+}
+
+.card h1 {
+    margin-bottom: 20px;
+    font-size: 3.3rem;
+    color: var(--orange);
+}
+
+.card h2 {
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 0.91rem;
+    line-height: 1.8;
+}
+
+.card img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 23px;
+    transition: transform var(--transition);
+}
+
+.card:hover img {
+    transform: translateY(-3px) scale(1.08);
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 75px 8%;
+    background: var(--green-light);
+    color: white;
+}
+
+footer .row {
+    align-items: flex-start;
+}
+
+footer h1 {
+    color: var(--cream-light);
+    font-size: clamp(2.2rem, 4vw, 3.3rem);
+}
+
+footer h3 {
+    color: var(--orange-pale);
+}
+
+footer p {
+    color: rgba(255,255,255,0.8);
+}
+
+footer .contact {
+    text-align: right;
+}
+
+footer .contact p {
+    margin: 15px 0 3px;
+    font-size: 0.72rem;
+    font-weight: 750;
+    letter-spacing: 0.14em;
+    color: var(--orange-pale);
+}
+
+footer .contact h3 {
+    font-size: 1.05rem;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+
+/* ==========================================
+    TABLET
+========================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        min-height: 72px;
+        padding: 14px 6%;
+    }
+
+    .navbar img {
+        width: 105px;
+    }
+
+    .nav-links {
+        gap: 5px;
+    }
+
+    .nav-links a {
+        padding: 8px;
+        font-size: 0.76rem;
+    }
+
+    .nav-links button {
+        padding: 10px 15px;
+        font-size: 0.8rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .card {
+        transform: translateY(0px);
+        padding: 28px;
+    }
+
+    footer {
+        padding: 60px 7%;
+    }
+
+    footer .row {
+        flex-direction: column;
+        gap: 35px;
+        text-align: left;
+    }
+
+    footer .contact {
+        text-align: left;
+    }
+
+    .floating-scrollbar {
+        display: none;
+    }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 420px) {
+
+    .card {
+        padding: 24px;
+    }
+
+}
+
+/* =========================
+   FLOATING SCROLLBAR
+========================= */
+
+/* Hide native scrollbar */
+html {
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+/* Floating scroll indicator */
+.floating-scrollbar {
+    position: fixed;
+    right: 15px;
+    top: 30%;
+    transform: translateY(-80%);
+    width: 5px;
+    height: 65px;
+    background: transparent;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.floating-scrollbar-thumb {
+    width: 5px;
+    height: 25px;
+    border-radius: 20px;
+    background: #7d8f5f;
+    position: absolute;
+    top: 0;
+    transition: background 0.3s ease;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #7d8f5f transparent;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7d8f5f;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d57853;
+    background-clip: padding-box;
+}
+
+
+/* ==========================================
+   FLOATING LANGUAGE SELECTOR
+========================================== */
+
+.floating-language {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 2000;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+/* MAIN BUTTON */
+
+.language-trigger {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 13px 19px;
+
+    background: var(--green-dark);
+    color: var(--white);
+
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 30px;
+
+    box-shadow: 0 6px 22px rgba(65,81,59,0.2);
+
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.language-trigger:hover {
+    background: var(--green);
+    transform: translateY(-4px);
+}
+
+.language-arrow {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+/* MENU */
+
+.language-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    padding: 9px;
+
+    background: var(--cream-light);
+    border: 1px solid var(--border);
+    border-radius: 18px 18px 5px 18px;
+
+    box-shadow: var(--shadow-lg);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.95);
+    transform-origin: bottom right;
+
+    transition: 
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.floating-language.open .language-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.floating-language.open .language-arrow {
+    transform: rotate(180deg);
+}
+
+/* MENU OPTIONS */
+
+.language-menu button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 150px;
+    padding: 12px 14px;
+
+    background: transparent;
+    color: var(--green-dark);
+
+    border-radius: 10px;
+    text-align: left;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    box-shadow: none;
+}
+
+.language-menu button:hover {
+    background: var(--orange-pale);
+    color: var(--green-dark);
+
+    transform: translateX(-3px);
+    box-shadow: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .floating-language {
+        right: 16px;
+        bottom: 18px;
+    }
+
+    .language-trigger {
+        padding: 12px 16px;
+    }
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button {
+    border: 0;
+    border-radius: 50px;
+    padding: 13px 25px;
+
+    background: var(--orange);
+    color: var(--white);
+
+    font-size: 0.9rem;
+    font-weight: 650;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+button:hover {
+    background: #c66c48;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(213, 120, 83, 0.22);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+.main-button {
+    margin-top: 20px;
+    padding: 16px 31px;
+
+    background: var(--green-dark);
+    border-radius: 50px;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.main-button:hover {
+    background: var(--green-light);
+    box-shadow: 0 10px 24px rgba(65, 81, 59, 0.2);
+}

@@ -1,0 +1,543 @@
+/* ==========================================
+   LAYOUT
+========================================== */
+
+.registrazione,
+.wus,
+.userstories,
+.motivazioni {
+    padding: clamp(75px, 9vw, 115px) 8%;
+}
+
+.registrazione > h1,
+.wus > h1,
+.userstories > h1,
+.motivazioni > h1 {
+    margin-right: auto;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 55px;
+    max-width: var(--container);
+    width: 100%;
+    margin: auto;
+}
+
+.column {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    margin: 35px 5%;
+    padding: clamp(50px, 7vw, 90px);
+
+    background: var(--cream-light);
+    border-radius: var(--radius-xl);
+}
+
+.hero::after {
+    content: "❁";
+    position: absolute;
+    z-index: -1;
+
+    top: 15px;
+    left: 3%;
+
+    font-size: 115px;
+    color: var(--green-light);
+    opacity: 0.12;
+
+    transform: rotate(-20deg);
+    pointer-events: none;
+}
+
+.hero .row {
+    gap: 65px;
+}
+
+.hero .column:first-child {
+    flex: 1.05;
+}
+
+.hero .column:last-child {
+    flex: 0.95;
+}
+
+.hero h3 {
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 5.7vw, 5.1rem);
+    line-height: 0.99;
+    letter-spacing: -0.055em;
+    margin-bottom: 28px;
+}
+
+.hero p {
+    max-width: 480px;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.hero .column img {
+    width: 100%;
+    height: 470px;
+    object-fit: cover;
+
+    border-radius: 190px 190px 35px 35px;
+
+    box-shadow: var(--shadow-md);
+
+    transition: transform 0.7s ease;
+}
+
+.hero .column img:hover {
+    transform: translateY(-7px) rotate(1deg);
+}
+
+.hero .column:last-child {
+    position: relative;
+}
+
+.hero .column img {
+    width: 100%;
+    height: 490px;
+    object-fit: cover;
+
+    border-radius: 48% 52% 38% 62% / 43% 38% 62% 57%;
+
+    box-shadow: none;
+
+    transform: rotate(2deg);
+    transition: transform 0.7s ease;
+}
+
+.hero .column img:hover {
+    transform: rotate(0deg) scale(1.025);
+}
+
+.hero-sticker {
+    position: absolute;
+    bottom: 25px;
+    left: -45px;
+    transform: rotate(-8deg);
+    border-radius: 48% 52% 60% 40% / 50% 40% 60% 50%;
+}
+
+/* ==========================================
+   REGISTRATION
+========================================== */
+
+.registrazione {
+    position: relative;
+    isolation: isolate;
+}
+
+.registrazione > h1,
+.wus > h1,
+.userstories > h1 {
+    margin-bottom: 25px;
+}
+
+.registrazione::before,
+.userstories::before,
+.wus::after {
+    position: absolute;
+    z-index: -1;
+    color: var(--green-light);
+    opacity: 0.11;
+    pointer-events: none;
+}
+
+.registrazione::before {
+    content: "✽";
+    top: 20px;
+    right: 5%;
+    font-size: 115px;
+}
+
+.registrazione .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 55px;
+    position: relative;
+}
+
+.registrazione .card {
+    background: var(--cream-light);
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 20px 10px;
+    position: relative;
+    border-radius: 58% 42% 72% 28% / 48% 65% 35% 52%;
+}
+
+.registrazione .card:nth-child(2) {
+    border-radius: 55% 45% 70% 30% / 35% 65% 40% 60%;
+    transform: translateY(55px);
+}
+
+.registrazione .card:nth-child(3) {
+    border-radius: 38% 62% 45% 55% / 60% 40% 65% 35%;
+    transform: translateY(15px);
+}
+
+.registrazione .card:hover {
+    transform: translateY(-5px);
+    box-shadow: none;
+}
+
+.registrazione .card:nth-child(2):hover {
+    transform: translateY(45px);
+}
+
+.registrazione .card h1 {
+    font-size: 6rem;
+    opacity: 0.75;
+    font-style: italic;
+}
+
+.registrazione .card h2 {
+    align-self: center;
+    max-width: 230px;
+}
+
+.registrazione .card p {
+    align-self: center;
+    max-width: 260px;
+}
+
+
+.tablet-image {
+    transform: translateY(25px);
+    display: none;
+    overflow: hidden;
+    border-radius: 70% 30% 40% 60% / 50% 45% 55% 50%;
+    transition: 0.35s cubic-bezier(.2,.7,.3,1);
+}
+
+.tablet-image:hover{
+    transform: translateY(10px);
+    box-shadow: none;
+}
+
+.tablet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================
+   WHY US
+========================================== */
+
+.wus {
+    position: relative;
+    isolation: isolate;
+}
+
+.wus .cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 19px;
+}
+
+.wus .card {
+    background: var(--white);
+    border-color: rgba(65, 81, 59, 0.08);
+    min-width: 300px;
+}
+
+.wus .card img {
+    width: 56px;
+    height: 56px;
+}
+
+
+.wus .cards {
+    grid-template-columns: 1.2fr 0.8fr 1fr 0.9fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.wus .card {
+    background: var(--cream-light);
+    border: none;
+    box-shadow: none;
+    padding: 50px;
+    border-radius: 0;
+}
+
+.wus .card:nth-child(1) {
+    border-radius: 28px 65px 25px 55px;
+    transform: translateY(5px);
+}
+
+.wus .card:nth-child(2) {
+    border-radius: 65px 25px 55px 28px;
+    transform: translateY(35px);
+}
+
+.wus .card:nth-child(3) {
+    border-radius: 25px 55px 28px 65px;
+    transform: translateY(10px);
+}
+
+.wus .card:nth-child(4) {
+    border-radius: 55px 28px 65px 25px;
+    transform: translateY(45px);
+}
+
+.wus .card:hover {
+    transform: translateY(-7px) rotate(1deg);
+    box-shadow: none;
+}
+
+.wus .card img {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 30px;
+}
+
+
+/* ==========================================
+   USER STORIES
+========================================== */
+
+.userstories {
+    position: relative;
+    isolation: isolate;
+}
+
+.userstories .card {
+    position: relative;
+    overflow: hidden;
+    padding-top: 38px;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+.userstories .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 5px;
+    background: var(--orange);
+}
+
+.userstories::after {
+    content: "☘";
+    position: absolute;
+    right: 3%;
+    bottom: 10px;
+    font-size: 160px;
+    color: #718663;
+    opacity: 0.18;
+    transform: rotate(-25deg);
+    pointer-events: none;
+}
+
+.userstories .card > p:first-of-type {
+    color: var(--green-dark);
+    font-family: var(--font-title);
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.65;
+}
+
+.userstories .card hr {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    margin: 15px 0;
+    background: var(--border);
+}
+
+.userstories .card h2 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 750;
+}
+
+.userstories .card p:last-child {
+    font-size: 0.8rem;
+}
+
+/* ==========================================
+   PHILOSOPHY
+========================================== */
+
+.motivazioni {
+    margin: 60px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #cce0a5;
+    border-radius: 35% 65% 50% 50%  / 60% 35% 65% 40%;
+}
+
+.motivazioni h1 {
+    text-align: right;
+    max-width: 850px;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 1.05;
+}
+
+.motivazioni h3 {
+    text-align: left;
+    margin-left: 10%;
+    max-width: 850px;
+}
+
+.motivazioni > p {
+    color: var(--green-dark);
+    text-align: left;
+    margin-left: 10%;
+    font-size: 1.05rem;
+}
+
+.values {
+    margin-top: 75px;
+    margin-left: 10%;
+    gap: 55px;
+}
+
+.values > div {
+    border-top: none;
+    border-left: 3px solid var(--orange);
+    padding-left: 25px;
+}
+
+.motivazioni::after {
+    content: "X";
+    position: absolute;
+    right: 30%;
+    bottom: 10px;
+    font-size: 160px;
+    color: #fdeee2;
+    opacity: 0.18;
+    transform: rotate(-25deg);
+    pointer-events: none;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .registrazione .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .registrazione .tablet-image {
+        display: block;
+        min-height: 220px;
+    }
+
+    .wus .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero .row {
+        gap: 35px;
+    }
+
+    .hero .column img {
+        height: 380px;
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .hero {
+        margin: 18px 3%;
+        padding: 55px 25px;
+        border-radius: var(--radius-lg);
+        text-align: center;
+    }
+
+    .hero .row {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.7rem, 11vw, 3.6rem);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero h3 {
+        font-size: 0.7rem;
+    }
+
+    .hero p {
+        margin: auto;
+    }
+
+    .hero .column img {
+        height: 320px;
+    }
+
+    .registrazione,
+    .wus,
+    .userstories,
+    .motivazioni {
+        padding: 75px 6%;
+    }
+
+    .cards,
+    .wus .cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .registrazione .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .tablet-image {
+        display: none;
+    }
+
+    .motivazioni h1 {
+        font-size: 2.5rem;
+    }
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 420px) {
+
+    .hero h1 {
+        font-size: 2.55rem;
+    }
+
+    .motivazioni h1 {
+        font-size: 2.15rem;
+    }
+
+}
