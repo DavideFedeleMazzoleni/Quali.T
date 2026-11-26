@@ -1,28 +1,11 @@
-import "dotenv/config";
-import express from "express";
-import mariadb from "mariadb";
+import { Router } from "express";
+import pool from "../db.js";
 
-const app = express();
-const port = process.env.PORT ?? 3000;
-
-app.use(express.json());
-
-const pool = mariadb.createPool({
-  host: process.env.DB_HOST ?? "127.0.0.1",
-  port: Number(process.env.DB_PORT ?? 3306),
-  user: process.env.DB_USER ?? "root",
-  password: process.env.DB_PASSWORD ?? "",
-  database: process.env.DB_NAME ?? "qualit",
-  connectionLimit: 10,
-});
-
-app.get("/", (req, res) => {
-  res.json({ status: "ok" });
-});
+const router = Router();
 
 // US-02 / RF4 / UC-04: creazione account cittadino (tabella `utente`).
 // Body JSON: { "email": string, "pw": string }
-app.post("/utenti", async (req, res) => {
+router.post("/", async (req, res) => {
   const { email, pw } = req.body ?? {};
 
   if (!email || typeof email !== "string" || !email.includes("@")) {
@@ -140,9 +123,7 @@ async function aggiornaUtente(req, res) {
   }
 }
 
-app.patch("/utenti", aggiornaUtente);
-app.patch("/utenti/:id_utente", aggiornaUtente);
+router.patch("/", aggiornaUtente);
+router.patch("/:id_utente", aggiornaUtente);
 
-app.listen(port, "0.0.0.0", () => {
-  console.log(`Quali.T backend in ascolto sulla porta ${port}`);
-});
+export default router;
