@@ -324,6 +324,7 @@ Come nuovo cittadino, voglio registrarmi fornendo i miei dati personali ed email
   - `AC-US02-01`: L'utente compila il modulo con nome, cognome, email e password.
   - `AC-US02-02`: Il sistema valida la presenza dei campi obbligatori e l'univocità dell'indirizzo email per il profilo cittadino.
   - `AC-US02-03`: Qualora l'email sia già associata ad un account negoziante, il sistema permette comunque la creazione del profilo cittadino associato alla medesima email.
+  - `AC-US02-04`: Il sistema invia una mail all’utente per verificarne la validità.
 
 ### US-03 — Collegamenti: RF3, RF6, RF9; UC-01
 **Ricerca e consultazione prodotti e negozi**
@@ -356,6 +357,7 @@ Come negoziante, voglio registrare la mia attività commerciale con i dati ident
   - `AC-US06-01`: Il negoziante inserisce denominazione, indirizzo completo (via e civico), orari di apertura e recapiti.
   - `AC-US06-02`: Il sistema verifica l'univocità dell'indirizzo del negozio (via e civico) e impedisce registrazioni duplicate.
   - `AC-US06-03`: A registrazione completata, il negozio viene geolocalizzato e reso consultabile nel sistema.
+  - `AC-US06-04`: Il negoziante registrato, dopo aver acceduto alla piattaforma, può modificare le informazioni del proprio negozio
 
 ### US-07 — Collegamenti: RF10, RF11, RF12; UC-08
 **Gestione catalogo prodotti, categorie e promozioni**
